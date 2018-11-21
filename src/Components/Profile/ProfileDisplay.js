@@ -19,14 +19,14 @@ class ProfileDisplay extends Component {
   };
 
   render() {
-    // console.log("from list", this.props);
+    console.log("from profile display props", this.props);
     return (
       <div>
         <ProfileDisplayCard
           resume={this.props.resume}
           education={this.getEducation()}
           experience={this.getExperience()}
-          handleClick={this.props.handleClick}
+          objective={this.props.resume.objective}
         />
       </div>
     );

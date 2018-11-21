@@ -4,29 +4,25 @@ import ProfileDisplay from "../Components/Profile/ProfileDisplay";
 
 class ProfileContainer extends Component {
   state = {
-    resume: this.props.user.resume,
     selectedResume: null,
     clicked: false
   };
 
   getUserResumes = () => {
-    return this.state.resume.map(resume => (
+    let resume = this.props.resumes.map(resumes => (
       <ProfileList
-        resume={resume}
-        key={resume.name}
+        resumes={resumes}
+        key={resumes.id}
         handleClick={this.handleClick}
       />
     ));
+    return resume;
   };
 
   getSelectedResume = () => {
     if (this.state.selectedResume) {
-      return (
-        <ProfileDisplay
-          resume={this.state.selectedResume}
-          key={this.state.selectedResume.name}
-        />
-      );
+      console.log("nop");
+      return <ProfileDisplay resume={this.state.selectedResume} />;
     }
   };
 
@@ -38,7 +34,8 @@ class ProfileContainer extends Component {
   };
 
   render() {
-    console.log(this.state);
+    // console.log(" PROPS FROM PROFILE CONTAINER LINE 41", this.props);
+    // console.log(" STATE FROM PROFILE CONTAINER LINE 41", this.state);
     return (
       <div>
         {this.state.clicked === false

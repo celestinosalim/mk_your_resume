@@ -3,10 +3,12 @@ import ProfileCard from "./ProfileCard";
 
 class ProfileList extends Component {
   render() {
+    console.log(this.props);
+
     return (
       <div>
         <ProfileCard
-          resume={this.props.resume}
+          resumes={this.props.resumes}
           handleClick={this.props.handleClick}
         />
       </div>

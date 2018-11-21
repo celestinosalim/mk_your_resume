@@ -22,8 +22,9 @@ class ResumeForm extends Component {
   };
 
   render() {
+    // console.log(this.props);
     return (
-      <form onSubmit={e => this.props.toggleState(e, this.state)}>
+      <form onSubmit={e => this.props.handleFormSubmit(e, this.state)}>
         <FormGroup>
           <ControlLabel>
             Name:

@@ -2,32 +2,55 @@ import React, { Component, Fragment } from "react";
 import NavBar from "../Components/NavBar/NavBar";
 import ProfileContainer from "./ProfileContainer";
 // import Footer from "../Components/Footer/Footer";
-import Form from "../Components/Form/ResumeForm";
+import ResumeForm from "../Components/Form/ResumeForm";
 import Contact from "../Components/Contact/Contact";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class MainContainer extends Component {
   getUserResume = () => {
-    return this.props.user.map(user => (
-      <ProfileContainer user={user} key={user.name} />
-    ));
+    return <ProfileContainer resumes={this.props.resumes} />;
   };
 
   getUserContact = () => {
-    return this.props.user.map(user => (
-      <Contact contact={user.contact} key={user.name} />
+    return this.props.users.map(user => (
+      <Contact contact={user.contact} key={user.id} />
     ));
   };
 
+  handleFormSubmit = (e, obj) => {
+    e.preventDefault();
+    let options = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        resume: [
+          {
+            name: obj.name,
+            objective: obj.objective,
+            education: obj.education,
+            experience: obj.experience
+          }
+        ]
+      })
+    };
+
+    fetch(`http://localhost:3000/user`, options);
+  };
   render() {
-    // console.log(this.props);
+    // console.log("FROM MAIN CONTAINER LINE 42", this.props);
     return (
       <Router>
         <Fragment>
           <NavBar />
           <Route exact path="/resume" render={() => this.getUserResume()} />
           <Route exact path="/contact" render={() => this.getUserContact()} />
-          <Route exact path="/new" render={() => <Form />} />
+          <Route
+            exact
+            path="/new"
+            render={() => (
+              <ResumeForm handleFormSubmit={this.handleFormSubmit} />
+            )}
+          />
           {/* <Footer /> */}
         </Fragment>
       </Router>

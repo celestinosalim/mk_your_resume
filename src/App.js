@@ -4,30 +4,40 @@ import MainContainer from "./Containers/MainContainer";
 
 class App extends Component {
   state = {
-    login: false,
-    user: []
+    // login: false,
+    users: [],
+    resumes: []
   };
 
-  toggleState = (e, obj) => {
-    e.preventDefault();
-    this.setState({
-      login: !this.state.login,
-      user: obj
-    });
-  };
+  // toggleState = (e, obj) => {
+  //   e.preventDefault();
+  //   this.setState({
+  //     login: !this.state.login,
+  //     user: obj
+  //   });
+  // };
 
   getUser = () => {
-    fetch("http://localhost:3000/user")
+    fetch("http://localhost:3000/users")
       .then(res => res.json())
-      .then(data => this.setState({ user: data }));
+      .then(data => this.setState({ users: data }));
+  };
+
+  getResumes = () => {
+    fetch("http://localhost:3000/resumes")
+      .then(res => res.json())
+      .then(data => this.setState({ resumes: data }));
   };
 
   componentDidMount() {
     this.getUser();
+    this.getResumes();
   }
 
   renderApp = () => {
-    return <MainContainer user={this.state.user} />;
+    return (
+      <MainContainer users={this.state.users} resumes={this.state.resumes} />
+    );
 
     // return <Login toggleState={this.toggleState} user={this.state.user} />;
   };
