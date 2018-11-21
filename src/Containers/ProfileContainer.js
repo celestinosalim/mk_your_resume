@@ -1,33 +1,49 @@
 import React, { Component } from "react";
 import ProfileList from "../Components/Profile/ProfileList";
+import ProfileDisplay from "../Components/Profile/ProfileDisplay";
 
 class ProfileContainer extends Component {
-  state = {};
+  state = {
+    resume: this.props.user.resume,
+    selectedResume: null,
+    clicked: false
+  };
 
   getUserResumes = () => {
-    return this.props.user.resume.map(resume => (
-      <ProfileList resume={resume} key={resume.name} />
+    return this.state.resume.map(resume => (
+      <ProfileList
+        resume={resume}
+        key={resume.name}
+        handleClick={this.handleClick}
+      />
     ));
   };
 
-  // getJustResumes = () => {
-  //   return this.props.user.resume.map(resume => (
-  //     <ul key={resume.id}>{resume.name}</ul>
-  //   ));
-  // };
+  getSelectedResume = () => {
+    if (this.state.selectedResume) {
+      return (
+        <ProfileDisplay
+          resume={this.state.selectedResume}
+          key={this.state.selectedResume.name}
+        />
+      );
+    }
+  };
 
-  // handleResumeDisplay = e => {
-  //   console.log(e.target);
-  // };
+  handleClick = (e, obj) => {
+    this.setState({
+      selectedResume: obj,
+      clicked: !this.state.clicked
+    });
+  };
 
   render() {
-    // console.log(this.props);
+    console.log(this.state);
     return (
       <div>
-        {/* <h1 onClick={e => this.handleResumeDisplay(e)}> */}
-        {/* {this.getJustResumes()} */}
-        {this.getUserResumes()}
-        {/* </h1> */}
+        {this.state.clicked === false
+          ? this.getUserResumes()
+          : this.getSelectedResume()}
       </div>
     );
   }

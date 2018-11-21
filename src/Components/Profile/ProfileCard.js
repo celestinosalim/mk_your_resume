@@ -7,12 +7,9 @@ class ProfileCard extends Component {
     // console.log(this.props);
     return (
       <div>
-        <h1>Education:</h1>
-        <h2>{this.props.education}</h2>
-        <br />
-        <h1>Experience:</h1>
-        <h2>{this.props.experience}</h2>
-        <br />
+        <h1 onClick={e => this.props.handleClick(e, this.props.resume)}>
+          {this.props.resume.name}
+        </h1>
       </div>
     );
   }
