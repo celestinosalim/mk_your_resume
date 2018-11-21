@@ -19,22 +19,20 @@ class MainContainer extends Component {
 
   handleFormSubmit = (e, obj) => {
     e.preventDefault();
+    // console.log(obj);
     let options = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        resume: [
-          {
-            name: obj.name,
-            objective: obj.objective,
-            education: obj.education,
-            experience: obj.experience
-          }
-        ]
+        user_id: 1,
+        name: obj.name,
+        objective: obj.objective,
+        education: obj.education,
+        experience: obj.experience
       })
     };
 
-    fetch(`http://localhost:3000/user`, options);
+    fetch(`http://localhost:3000/resumes`, options);
   };
   render() {
     // console.log("FROM MAIN CONTAINER LINE 42", this.props);

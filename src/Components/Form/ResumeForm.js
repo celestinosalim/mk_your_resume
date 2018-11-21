@@ -1,11 +1,5 @@
 import React, { Component } from "react";
-import {
-  FormGroup,
-  ControlLabel,
-  FormControl,
-  Form,
-  Button
-} from "react-bootstrap";
+import { FormGroup, ControlLabel, FormControl, Button } from "react-bootstrap";
 
 class ResumeForm extends Component {
   state = {
@@ -79,9 +73,9 @@ class ResumeForm extends Component {
             <FormControl.Feedback />
           </ControlLabel>
         </FormGroup>
-        <button className="btn btn-primary" type="submit">
+        <Button className="btn btn-primary" type="submit">
           Submit
-        </button>
+        </Button>
       </form>
     );
   }
