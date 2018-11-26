@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { FormGroup, ControlLabel, FormControl, Button } from "react-bootstrap";
 
-class ResumeForm extends Component {
+class EditForm extends Component {
   state = {
     name: "",
     objective: "",
@@ -16,9 +16,9 @@ class ResumeForm extends Component {
   };
 
   render() {
-    // console.log(this.props);
+    console.log(this.props, "edit form");
     return (
-      <form onSubmit={e => this.props.handleFormSubmit(e, this.state)}>
+      <form onSubmit={e => this.props.handleEditSubmit(e, this.state)}>
         <FormGroup>
           <ControlLabel>
             Resume Name:
@@ -81,4 +81,4 @@ class ResumeForm extends Component {
   }
 }
 
-export default ResumeForm;
+export default EditForm;

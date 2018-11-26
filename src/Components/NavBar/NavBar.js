@@ -24,7 +24,7 @@ class NavBar extends Component {
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
               <a className="nav-link" href="/new">
-                New Resume
+                Create Resume
               </a>
             </li>
             <li className="nav-item">

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ProfileDisplayCard from "./ProfileDisplayCard";
 import EducationCard from "./EducationCard";
 import ExperienceCard from "./ExperienceCard";
+import Scrollspy from "react-scrollspy";
 
 class ProfileDisplay extends Component {
   state = {};
@@ -19,7 +20,7 @@ class ProfileDisplay extends Component {
   };
 
   render() {
-    console.log("from profile display props", this.props);
+    // console.log("from profile display props", this.props);
     return (
       <div>
         <ProfileDisplayCard
@@ -27,6 +28,8 @@ class ProfileDisplay extends Component {
           education={this.getEducation()}
           experience={this.getExperience()}
           objective={this.props.resume.objective}
+          handleEditClick={this.props.handleEditClick}
+          handleDeleteClick={this.props.handleDeleteClick}
         />
       </div>
     );

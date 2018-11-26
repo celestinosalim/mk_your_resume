@@ -12,14 +12,6 @@
   "resumes": [
     {
       "user_id": 1,
-      "id": 1,
-      "name": "My First Resume",
-      "objective": "Highly motivated electronics engineer, with a background in business management and customer service, looking for a full time opportunity as a junior python programmer.",
-      "education": ["Flatiron School", "NYU", "Access Lab"],
-      "experience": ["Student", "Software Engineer", "Freelance"]
-    },
-    {
-      "user_id": 1,
       "id": 2,
       "name": "My Second Resume",
       "objective": "Highly motivated electronics engineer, with a background in business management and customer service, looking for a full time opportunity as a junior python programmer.",
@@ -28,7 +20,23 @@
         "Waiter School that doesnt exist",
         "Access Lab"
       ],
-      "experience": ["Student", "Waiter", "Freelance"]
+      "experience": [
+        "Student",
+        "Waiter",
+        "Freelance"
+      ]
+    },
+    {
+      "user_id": 1,
+      "name": "Third Resume",
+      "objective": "The objective of this resume is that the form works",
+      "education": [
+        "Access Lab "
+      ],
+      "experience": [
+        "Student"
+      ],
+      "id": 3
     }
   ]
 }

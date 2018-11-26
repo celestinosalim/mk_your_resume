@@ -6,7 +6,7 @@ class EducationCard extends Component {
     // console.log(this.props, "education");
     return (
       <div>
-        <h3>{this.props.education}</h3>
+        <p>{this.props.education}</p>
       </div>
     );
   }

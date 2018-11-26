@@ -5,7 +5,7 @@ class ExperienceCard extends Component {
   render() {
     return (
       <div>
-        <h3>{this.props.experience}</h3>
+        <ul className="exp">{this.props.experience}</ul>
       </div>
     );
   }
